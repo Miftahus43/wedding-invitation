@@ -8,7 +8,7 @@ export function Closing() {
         className="closing-bg"
         style={{
           backgroundImage:
-            'url("https://images.unsplash.com/photo-1519741196428-6a2175fa2557?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200")',
+            'url("https://5kha3rsp76.ucarecd.net/a81ba1c2-5fbc-4c88-91c9-0c3bf0f4dd83/closing.jpeg")',
         }}
       />
       <div className="closing-shade" />

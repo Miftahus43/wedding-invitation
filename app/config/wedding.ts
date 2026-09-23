@@ -194,63 +194,54 @@ export const WEDDING_CONFIG: WeddingConfig = {
       featured: true,
       tall: true,
       fullSrc:
-        "https://images.unsplash.com/photo-1519741196428-6a2175fa2557?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+        "https://5kha3rsp76.ucarecd.net/ab1e93c6-64fc-46c6-8d29-e67bfb9a479b/4.jpeg",
       thumbSrc:
-        "https://images.unsplash.com/photo-1519741196428-6a2175fa2557?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
+        "https://5kha3rsp76.ucarecd.net/ab1e93c6-64fc-46c6-8d29-e67bfb9a479b/-/scale_crop/300x300/",
       alt: "Momen Bahagia Miftah & Riris",
     },
     {
       id: 1,
       tall: false,
       fullSrc:
-        "https://images.unsplash.com/photo-1758727654358-a90614d694eb?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+        "https://5kha3rsp76.ucarecd.net/2c7f0a5c-940f-4d15-b8ee-5a38379c25b1/2.jpeg",
       thumbSrc:
-        "https://images.unsplash.com/photo-1758727654358-a90614d694eb?crop=entropy&cs=srgb&fm=jpg&q=85&w=600",
+        "https://5kha3rsp76.ucarecd.net/2c7f0a5c-940f-4d15-b8ee-5a38379c25b1/-/scale_crop/300x300/",
       alt: "Senyum Bersama",
     },
     {
       id: 2,
       tall: false,
       fullSrc:
-        "https://images.unsplash.com/photo-1541679368093-5c967ac6de11?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+        "https://5kha3rsp76.ucarecd.net/2df477e0-5aff-43b3-b63a-71aa6cd4190b/3.jpeg",
       thumbSrc:
-        "https://images.unsplash.com/photo-1541679368093-5c967ac6de11?crop=entropy&cs=srgb&fm=jpg&q=85&w=600",
+        "https://5kha3rsp76.ucarecd.net/2df477e0-5aff-43b3-b63a-71aa6cd4190b/-/scale_crop/300x300/",
       alt: "Langkah Beriringan",
     },
     {
       id: 3,
       tall: false,
       fullSrc:
-        "https://images.unsplash.com/photo-1785033156412-d70febb5caa9?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+        "https://5kha3rsp76.ucarecd.net/9720b430-a4c5-495f-b73d-e5a1d42b1c06/1.jpeg",
       thumbSrc:
-        "https://images.unsplash.com/photo-1785033156412-d70febb5caa9?crop=entropy&cs=srgb&fm=jpg&q=85&w=600",
+        "https://5kha3rsp76.ucarecd.net/9720b430-a4c5-495f-b73d-e5a1d42b1c06/-/scale_crop/300x300/",
       alt: "Tatapan Penuh Makna",
     },
     {
       id: 4,
-      tall: true,
+      tall: false,
       fullSrc:
-        "https://images.unsplash.com/photo-1775126964671-43b4c1a1c5ce?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+        "https://5kha3rsp76.ucarecd.net/af98e2ec-dd67-4d9a-95ed-b3e490ee0537/5.jpeg",
       thumbSrc:
-        "https://images.unsplash.com/photo-1775126964671-43b4c1a1c5ce?crop=entropy&cs=srgb&fm=jpg&q=85&w=600",
-      alt: "Janji Suci",
+        "https://5kha3rsp76.ucarecd.net/af98e2ec-dd67-4d9a-95ed-b3e490ee0537/-/scale_crop/300x300/",
+      alt: "Kehangatan Cinta",
     },
     {
       id: 5,
       tall: false,
       fullSrc:
-        "https://images.unsplash.com/photo-1776266100731-b70a9211e081?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+        "https://5kha3rsp76.ucarecd.net/f007cb0c-86cc-4a28-bdcc-d6fa81de26d1/6.jpeg",
       thumbSrc:
-        "https://images.unsplash.com/photo-1776266100731-b70a9211e081?crop=entropy&cs=srgb&fm=jpg&q=85&w=600",
-      alt: "Kehangatan Cinta",
-    },
-    {
-      id: 6,
-      tall: false,
-      fullSrc:
-        "https://images.unsplash.com/photo-1619422306166-ac08c06b02e3?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-      thumbSrc:
-        "https://images.unsplash.com/photo-1619422306166-ac08c06b02e3?crop=entropy&cs=srgb&fm=jpg&q=85&w=600",
+        "https://5kha3rsp76.ucarecd.net/f007cb0c-86cc-4a28-bdcc-d6fa81de26d1/-/scale_crop/300x300/",
       alt: "Hari yang Dinanti",
     },
   ],

@@ -116,7 +116,7 @@ export function Cover({ guestName, isOpen, onOpen, onBeforeOpen }: CoverProps) {
       <div
         className="cover-bg"
         style={{
-          backgroundImage: "url('/cover.webp')",
+          backgroundImage: "url('https://5kha3rsp76.ucarecd.net/1351a59b-3cfc-48dc-a703-6aa2137239f5/bgutama.jpeg')",
           filter: "brightness(0.48) contrast(1.1)",
         }}
       />
