@@ -22,7 +22,7 @@ import { FloatControls } from "../components/FloatControls";
 import { AudioPlayer } from "../components/AudioPlayer";
 import { Toast } from "../components/Toast";
 import { WEDDING_CONFIG } from "../config/wedding";
-import { sanitizeGuestName } from "../utils/contentFilter";
+import { sanitizeGuestName, containsProfanity } from "../utils/contentFilter";
 
 export function meta({ location }: Route.MetaArgs) {
   const search = new URLSearchParams(location.search);
@@ -68,6 +68,7 @@ export default function Home() {
   const autoOpen = searchParams.get("open") === "1";
 
   const guestName = sanitizeGuestName(rawTo);
+  const hasPersonalInvite = Boolean(rawTo && rawTo.trim().length > 0 && !containsProfanity(rawTo));
 
   const [isOpen, setIsOpen] = useState(autoOpen);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -306,7 +307,8 @@ export default function Home() {
         <Countdown />
         <Gallery onPhotoClick={handlePhotoClick} />
         <Rsvp
-          initialName={rawTo ? guestName : ""}
+          initialName={hasPersonalInvite ? guestName : ""}
+          hasPersonalInvite={hasPersonalInvite}
           onShowToast={showToast}
           onSubmitSuccess={(data) => setUserRsvp(data)}
         />

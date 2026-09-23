@@ -149,32 +149,32 @@ export const WEDDING_CONFIG: WeddingConfig = {
   storyMoments: [
     {
       chapter: "I",
-      year: "2021",
-      when: "Maret 2021",
+      year: "2023",
+      when: "Maret 2023",
       title: "Awal Pertemuan",
       desc: "Takdir mempertemukan kami di sebuah acara kampus. Percakapan singkat yang tak disangka menjadi awal kisah perjalanan yang indah.",
       image:
-        "https://images.unsplash.com/photo-1758727654358-a90614d694eb?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
+        "https://5kha3rsp76.ucarecd.net/c1a45253-7900-4e97-8e3f-f9d91d479375/-/crop/960x745/0,535/-/preview/3000x3000/",
       alt: "Awal Pertemuan",
     },
     {
       chapter: "II",
-      year: "2022",
-      when: "Desember 2022",
+      year: "2024",
+      when: "Desember 2024",
       title: "Semakin Dekat",
       desc: "Hari demi hari kami lalui bersama. Belajar saling memahami, berbagi suka dan duka, hingga menemukan kenyamanan dalam setiap langkah.",
       image:
-        "https://images.unsplash.com/photo-1785033156412-d70febb5caa9?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
+        "https://5kha3rsp76.ucarecd.net/fe974ea4-8e4e-406a-b417-e1ad3c567a3c/-/crop/960x967/0,313/-/preview/3000x3000/",
       alt: "Semakin Dekat",
     },
     {
       chapter: "III",
-      year: "2026",
-      when: "Februari 2026",
+      year: "2025",
+      when: "Februari 2025",
       title: "Sebuah Janji",
       desc: "Dengan restu kedua orang tua dan keluarga, sebuah komitmen diikrarkan untuk melangkah bersama ke gerbang pernikahan yang suci.",
       image:
-        "https://images.unsplash.com/photo-1776266100731-b70a9211e081?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
+        "https://5kha3rsp76.ucarecd.net/9b718bee-41df-4258-99b4-dfd8fd6bcd31/2025.jpeg",
       alt: "Sebuah Janji",
     },
     {
@@ -184,7 +184,7 @@ export const WEDDING_CONFIG: WeddingConfig = {
       title: "Menuju Halal",
       desc: "Kini kami siap menyatukan dua hati dalam ikatan pernikahan yang agung, memohon doa restu dari segenap keluarga dan sahabat terkasih.",
       image:
-        "https://images.unsplash.com/photo-1775126964671-43b4c1a1c5ce?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
+        "https://5kha3rsp76.ucarecd.net/e10a57e3-1d23-43ff-a978-eb18e154858c/akhirnya.jpeg",
       alt: "Menuju Halal",
     },
   ],

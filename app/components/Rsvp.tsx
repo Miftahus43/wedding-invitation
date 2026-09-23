@@ -7,11 +7,17 @@ const RSVP_COOLDOWN_DURATION = 15; // 15 seconds cooldown between RSVP submissio
 
 interface RsvpProps {
   initialName?: string;
+  hasPersonalInvite?: boolean;
   onShowToast: (msg: string) => void;
   onSubmitSuccess?: (rsvpData: RsvpPayload) => void;
 }
 
-export function Rsvp({ initialName = "", onShowToast, onSubmitSuccess }: RsvpProps) {
+export function Rsvp({
+  initialName = "",
+  hasPersonalInvite = false,
+  onShowToast,
+  onSubmitSuccess,
+}: RsvpProps) {
   const [name, setName] = useState(initialName);
   const [status, setStatus] = useState<"Hadir" | "Tidak Hadir">("Hadir");
   const [count, setCount] = useState("1 Orang");
@@ -75,15 +81,27 @@ export function Rsvp({ initialName = "", onShowToast, onSubmitSuccess }: RsvpPro
     return () => clearInterval(timer);
   }, [cooldown]);
 
-  // Update name if prop changes and not edited yet
+  // Sync name from prop if provided
   useEffect(() => {
     if (initialName && !name && !savedRsvp) {
       setName(initialName);
     }
   }, [initialName, name, savedRsvp]);
 
+  useEffect(() => {
+    if (hasPersonalInvite && initialName && (!savedRsvp || isEditing)) {
+      setName(initialName);
+    }
+  }, [hasPersonalInvite, initialName, savedRsvp, isEditing]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // 0. Verification check: Must have personal invite (?to=) or previously saved RSVP
+    if (!hasPersonalInvite && !savedRsvp) {
+      onShowToast("Konfirmasi kehadiran hanya untuk tamu dengan tautan undangan resmi");
+      return;
+    }
 
     // 1. Honeypot check (bot trap)
     if (honeypot.trim() !== "") {
@@ -97,19 +115,24 @@ export function Rsvp({ initialName = "", onShowToast, onSubmitSuccess }: RsvpPro
       return;
     }
 
-    const trimmedName = name.trim();
+    // Determine final name (locked to invitation link if personal invite present)
+    const effectiveName = hasPersonalInvite && initialName
+      ? initialName.trim()
+      : savedRsvp && isEditing
+      ? savedRsvp.name
+      : name.trim();
 
-    if (!trimmedName || trimmedName.length < 2) {
+    if (!effectiveName || effectiveName.length < 2) {
       onShowToast("Mohon isi nama lengkap Anda (min. 2 karakter)");
       return;
     }
 
-    if (trimmedName.length > 80) {
+    if (effectiveName.length > 80) {
       onShowToast("Nama maksimal 80 karakter");
       return;
     }
 
-    if (containsProfanity(trimmedName)) {
+    if (containsProfanity(effectiveName)) {
       onShowToast("Nama mengandung kata tidak pantas. Mohon gunakan nama yang sopan.");
       return;
     }
@@ -131,7 +154,7 @@ export function Rsvp({ initialName = "", onShowToast, onSubmitSuccess }: RsvpPro
     }
 
     const rsvpPayload: RsvpPayload = {
-      name: trimmedName,
+      name: effectiveName,
       status,
       count: status === "Hadir" ? count : "0 Orang",
       timestamp: new Date().toISOString(),
@@ -201,6 +224,23 @@ export function Rsvp({ initialName = "", onShowToast, onSubmitSuccess }: RsvpPro
               Ubah Konfirmasi
             </button>
           </div>
+        ) : !hasPersonalInvite && !savedRsvp ? (
+          <div className="rsvp-locked-card reveal-el">
+            <div className="locked-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <h3 className="serif locked-title">Khusus Tamu Undangan</h3>
+            <p className="locked-desc">
+              Mohon maaf, formulir konfirmasi kehadiran (RSVP) hanya dapat diisi melalui tautan undangan personal yang dikirimkan langsung oleh kedua mempelai.
+            </p>
+            <div className="rsvp-locked-note">
+              <span className="locked-sparkle">✦</span>
+              <span>Pastikan membuka undangan melalui tautan personal yang memuat nama Anda.</span>
+            </div>
+          </div>
         ) : (
           <form
             id="rsvpForm"
@@ -232,17 +272,37 @@ export function Rsvp({ initialName = "", onShowToast, onSubmitSuccess }: RsvpPro
             </div>
 
             <div className="field">
-              <label htmlFor="rsvpNama">Nama Lengkap</label>
+              <div className="field-label-row">
+                <label htmlFor="rsvpNama">Nama Lengkap</label>
+                {(hasPersonalInvite || (savedRsvp && isEditing)) && (
+                  <span className="field-badge-locked">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    Terkunci
+                  </span>
+                )}
+              </div>
               <input
                 type="text"
                 id="rsvpNama"
-                placeholder="Nama Anda"
+                placeholder={hasPersonalInvite ? "" : "Nama Anda"}
                 required
                 maxLength={80}
                 data-testid="rsvp-name-input"
+                readOnly={hasPersonalInvite || Boolean(savedRsvp && isEditing)}
+                className={(hasPersonalInvite || Boolean(savedRsvp && isEditing)) ? "input-locked" : ""}
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+                  if (!hasPersonalInvite && !(savedRsvp && isEditing)) {
+                    setName(e.target.value);
+                  }
+                }}
               />
+              {(hasPersonalInvite || Boolean(savedRsvp && isEditing)) && (
+                <span className="field-hint">Nama terisi otomatis dari tautan undangan personal Anda.</span>
+              )}
             </div>
 
             <div className="field">
