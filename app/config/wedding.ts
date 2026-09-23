@@ -152,7 +152,7 @@ export const WEDDING_CONFIG: WeddingConfig = {
       year: "2023",
       when: "Maret 2023",
       title: "Awal Pertemuan",
-      desc: "Takdir mempertemukan kami di sebuah acara kampus. Percakapan singkat yang tak disangka menjadi awal kisah perjalanan yang indah.",
+      desc: "Takdir mempertemukan kami dalam sebuah pertemuan keluarga yang bertujuan untuk mengikat janji dan menjalin silaturahmi yang baik ke depan. Percakapan yang tak disangka itu ternyata menjadi awal dari sebuah perjalanan yang indah.",
       image:
         "https://5kha3rsp76.ucarecd.net/c1a45253-7900-4e97-8e3f-f9d91d479375/-/crop/960x745/0,535/-/preview/3000x3000/",
       alt: "Awal Pertemuan",
@@ -243,6 +243,15 @@ export const WEDDING_CONFIG: WeddingConfig = {
       thumbSrc:
         "https://5kha3rsp76.ucarecd.net/f007cb0c-86cc-4a28-bdcc-d6fa81de26d1/-/scale_crop/300x300/",
       alt: "Hari yang Dinanti",
+    },
+    {
+      id: 6,
+      tall: false,
+      fullSrc:
+        "https://5kha3rsp76.ucarecd.net/e10a57e3-1d23-43ff-a978-eb18e154858c/akhirnya.jpeg",
+      thumbSrc:
+        "https://5kha3rsp76.ucarecd.net/e10a57e3-1d23-43ff-a978-eb18e154858c/-/scale_crop/300x300/",
+      alt: "Kebersamaan",
     },
   ],
 };
